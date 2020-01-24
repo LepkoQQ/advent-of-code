@@ -11,5 +11,6 @@ module.exports = {
     'no-plusplus': 'off',
     'no-restricted-syntax': 'off',
     'no-constant-condition': 'off',
+    'no-continue': 'off',
   },
 };
