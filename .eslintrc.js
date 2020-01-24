@@ -7,5 +7,9 @@ module.exports = {
   plugins: ['prettier'],
   rules: {
     'no-console': 'off',
+    'no-labels': 'off',
+    'no-plusplus': 'off',
+    'no-restricted-syntax': 'off',
+    'no-constant-condition': 'off',
   },
 };
