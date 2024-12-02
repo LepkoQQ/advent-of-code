@@ -1,0 +1,19 @@
+{
+  "name": "advent-2024",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "license": "ISC",
+  "engines": {
+    "node": "^22.11.0"
+  },
+  "scripts": {
+    "day": "echo \"Run 'npx tsx day-XX' instead.\" && exit 1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.1",
+    "prettier": "^3.4.1",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2"
+  }
+}
