@@ -9,3 +9,12 @@ export function loadInput(scriptUrl: string): string {
     )
     .trim()
 }
+
+export function dirs4(): [number, number][] {
+  return [
+    [0, -1],
+    [1, 0],
+    [0, 1],
+    [-1, 0],
+  ]
+}
