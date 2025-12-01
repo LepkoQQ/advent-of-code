@@ -21,7 +21,7 @@ const startPos = 50;
 
 const testAnswer1 = 3;
 
-function numberOfPosAt0(input: string, any_move_past_zero = false): number {
+function numberOfPosAt0(input: string, anyMovePastZero = false): number {
   const lines = input.split("\n").map((line) => line.trim());
   let count = 0;
 
@@ -32,18 +32,40 @@ function numberOfPosAt0(input: string, any_move_past_zero = false): number {
     if (turn === "L") {
       num = -num;
     }
-    if (any_move_past_zero) {
-      for (let i = 0; i < Math.abs(num); i++) {
-        pos = (pos + (num > 0 ? 1 : -1) + 100) % 100;
-        if (pos === 0) {
-          count++;
-        }
-      }
-    } else {
-      pos = (pos + num + 100) % 100;
+    if (!anyMovePastZero) {
+      // Part 1
+      pos = (pos + (num % 100) + 100) % 100;
       if (pos === 0) {
         count++;
       }
+    } else {
+      // Part 2
+
+      // 1) First solution
+      // for (let i = 0; i < Math.abs(num); i++) {
+      //   pos = (pos + (num > 0 ? 1 : -1) + 100) % 100;
+      //   if (pos === 0) {
+      //     count++;
+      //   }
+      // }
+
+      // 2) Optimized solution
+      const numFullRotations = Math.floor(Math.abs(num) / 100);
+      count += numFullRotations;
+
+      if (pos !== 0) {
+        const remainder = num % 100;
+        const newPos = (pos + (num % 100) + 100) % 100;
+        if (
+          newPos === 0 ||
+          (remainder < 0 && newPos > pos) ||
+          (remainder > 0 && newPos < pos)
+        ) {
+          count++;
+        }
+      }
+
+      pos = (pos + (num % 100) + 100) % 100;
     }
   }
 
