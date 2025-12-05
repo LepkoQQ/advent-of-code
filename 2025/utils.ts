@@ -1,5 +1,5 @@
-import fs from "node:fs"
-import path from "node:path"
+import fs from "node:fs";
+import path from "node:path";
 
 export function loadInput(scriptUrl: string): string {
   return fs
@@ -7,7 +7,7 @@ export function loadInput(scriptUrl: string): string {
       path.join(path.dirname(new URL(scriptUrl).pathname), "input.txt"),
       "utf-8",
     )
-    .trim()
+    .trim();
 }
 
 export function dirs4(): [number, number][] {
@@ -16,5 +16,18 @@ export function dirs4(): [number, number][] {
     [1, 0],
     [0, 1],
     [-1, 0],
-  ]
+  ];
+}
+
+export function dirs8(): [number, number][] {
+  return [
+    [0, -1],
+    [1, -1],
+    [1, 0],
+    [1, 1],
+    [0, 1],
+    [-1, 1],
+    [-1, 0],
+    [-1, -1],
+  ];
 }
